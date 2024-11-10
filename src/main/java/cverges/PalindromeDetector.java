@@ -20,7 +20,15 @@ import org.apache.commons.lang3.StringUtils;
  *   <ul>
  *     <li>
  *       Does not work with multibyte characters, such as Unicode emojis,
- *       due to Java's lacking comprehensive support for these characters
+ *       due to Java's lacking comprehensive support for these characters.
+ *     </li>
+ *     <li>
+ *       Diacritics are really hard to fully get right.  We use the Apache
+ *       commons-lang3 StringUtils library and so rely on how they think
+ *       about it; but certain characters like &quot;ñ&quot; are separate
+ *       from &quot;n&quot;, and the library doesn't handle those well.
+ *       If you care about these cases, disable the removeDiacritics flag
+ *       and sanitize before passing into this function.
  *     </li>
  *   </ul>
  * </p>

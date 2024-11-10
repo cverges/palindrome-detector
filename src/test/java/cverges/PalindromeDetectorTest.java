@@ -51,7 +51,8 @@ public class PalindromeDetectorTest {
             Arguments.of("Osó", true),
             Arguments.of("A man, a plan, a canal -- Panama", true),
             Arguments.of("T!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~acocat", true),
-            Arguments.of("f\n\r\toof", true)
+            Arguments.of("f\n\r\toof", true),
+            Arguments.of("ñn", true)
         );
     }
 
