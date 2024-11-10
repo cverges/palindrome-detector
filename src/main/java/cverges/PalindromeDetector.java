@@ -86,19 +86,15 @@ public final class PalindromeDetector {
 			return true;
 		}
 
-		final String sanitizedInput = (this.removePunctuation)
-			? input.replaceAll("\\p{Punct}", "")
-			: input;
-
 		int i = 0;
-		int j = sanitizedInput.length();
+		int j = input.length();
 
 		boolean wasSomethingChanged = false;
 
 		for (; i < j; i++, j--) {
 			log.trace("i={}, j={}", i, j);
 
-			String a = sanitizedInput.substring(i, i + 1);
+			String a = input.substring(i, i + 1);
 			log.trace("a={}", a);
 			do {
 				wasSomethingChanged = false;
@@ -114,7 +110,7 @@ public final class PalindromeDetector {
 						return true;
 					}
 
-					a = sanitizedInput.substring(i, i + 1);
+					a = input.substring(i, i + 1);
 					log.trace("a={}", a);
 
 					wasSomethingChanged = true;
@@ -131,7 +127,7 @@ public final class PalindromeDetector {
 						return true;
 					}
 
-					a = sanitizedInput.substring(i, i + 1);
+					a = input.substring(i, i + 1);
 					log.trace("a={}", a);
 
 					wasSomethingChanged = true;
@@ -144,7 +140,7 @@ public final class PalindromeDetector {
 				a = a.toLowerCase();
 			}
 
-			String b = sanitizedInput.substring(j - 1, j);
+			String b = input.substring(j - 1, j);
 			log.trace("b={}", b);
 			do {
 				wasSomethingChanged = false;
@@ -159,7 +155,7 @@ public final class PalindromeDetector {
 						return true;
 					}
 
-					b = sanitizedInput.substring(j - 1, j);
+					b = input.substring(j - 1, j);
 					log.trace("b={}", b);
 
 					wasSomethingChanged = true;
@@ -176,7 +172,7 @@ public final class PalindromeDetector {
 						return true;
 					}
 
-					b = sanitizedInput.substring(j - 1, j);
+					b = input.substring(j - 1, j);
 					log.trace("b={}", b);
 
 					wasSomethingChanged = true;
